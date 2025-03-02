@@ -44,28 +44,28 @@ def make_prediction(*,input_data:Union[pd.DataFrame, dict]) -> dict:
 
 if __name__ == "__main__":
 
-    data_in={
-            'dteday':['2012-11-05'], 
-            'season':['winter'],
-            'hr':['6am'],
-            'holiday':['No'],
-            'weekday':['Mon'],
-            'workingday':['Yes'],
-            'weathersit':['Mist'],
-            'temp':[6.10],	
-            'atemp':[3.0014],
-            'hum':[49.0],
-            'windspeed':[19.0012],
-            'casual':[4],
-            'registered':[134],
-            'cnt': [0]
-            }
+    # data_in={
+    #         'dteday':['2012-11-05'], 
+    #         'season':['winter'],
+    #         'hr':['6am'],
+    #         'holiday':['No'],
+    #         'weekday':['Mon'],
+    #         'workingday':['Yes'],
+    #         'weathersit':['Mist'],
+    #         'temp':[6.10],	
+    #         'atemp':[3.0014],
+    #         'hum':[49.0],
+    #         'windspeed':[19.0012],
+    #         'casual':[4],
+    #         'registered':[134],
+    #         'cnt': [0]
+    #         }
     #             'cnt':[139]
 
     # 2012-02-19,spring,1pm,No,Sun,No,Clear,6.1,3.998000000000001,49.0,11.0014,64,197,261
-    
+    # 2012-02-19,spring,1pm,No,Sun,No,Clear,6.1,3.998000000000001,49.0,11.0014,64,197,261
     data_in={
-            'dteday':['2012-02-19'], 
+            'dteday':["2012-02-19"], 
             'season':['spring'],
             'hr':['1pm'],
             'holiday':['No'],

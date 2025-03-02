@@ -1,4 +1,5 @@
 import sys
+from datetime import datetime
 from pathlib import Path
 file = Path(__file__).resolve()
 parent, root = file.parent, file.parents[1]
@@ -33,7 +34,7 @@ def validate_inputs(*, input_df: pd.DataFrame) -> Tuple[pd.DataFrame, Optional[d
 
 
 class DataInputSchema(BaseModel):
-    dteday: Optional[str]
+    dteday: Optional[datetime]
     season: Optional[str]
     hr: Optional[str]
     holiday: Optional[str]
@@ -46,7 +47,7 @@ class DataInputSchema(BaseModel):
     windspeed: Optional[float]
     casual: Optional[int]
     registered: Optional[int]
-    cnt: Optional[int]
+    # cnt: Optional[int]
 
 
 class MultipleDataInputs(BaseModel):
