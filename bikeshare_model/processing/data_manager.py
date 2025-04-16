@@ -1,5 +1,7 @@
 import sys
 from pathlib import Path
+import os
+
 file = Path(__file__).resolve()
 parent, root = file.parent, file.parents[1]
 sys.path.append(str(root))
@@ -85,6 +87,8 @@ def save_pipeline(*, pipeline_to_persist: Pipeline) -> None:
     save_path = TRAINED_MODEL_DIR / save_file_name
 
     remove_old_pipelines(files_to_keep=[save_file_name])
+    if not os.path.exists(TRAINED_MODEL_DIR):
+        os.makedirs(TRAINED_MODEL_DIR)
     joblib.dump(pipeline_to_persist, save_path)
     print("Model/pipeline trained successfully!")
 
@@ -105,6 +109,7 @@ def remove_old_pipelines(*, files_to_keep: t.List[str]) -> None:
     version to be imported and used by other applications.
     """
     do_not_delete = files_to_keep + ["__init__.py", ".gitignore"]
-    for model_file in TRAINED_MODEL_DIR.iterdir():
-        if model_file.name not in do_not_delete:
-            model_file.unlink()
+    if os.path.isdir(TRAINED_MODEL_DIR):
+        for model_file in TRAINED_MODEL_DIR.iterdir():
+            if model_file.name not in do_not_delete:
+                model_file.unlink()
